@@ -210,7 +210,7 @@ int main () {
 
      // Report
       printf("\nREPORT");
-      printf("\n\nSTUDENT: %s, %s %c.", s1.Lname, s1.Lname, M_I);
+      printf("\n\nSTUDENT: %s, %s %c.", s1.Lname, s1.Fname, M_I);
       printf("\nSUBJECT: %s",s1.Subject);
       printf("\n  GRADE: %.2f",total_grade);
 
