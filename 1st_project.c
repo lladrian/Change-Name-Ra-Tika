@@ -11,8 +11,8 @@ struct Student {
 
  struct Student s1;
 
- void Grading_System(void);
- 
+ int Grading_System(void);
+
  char option, M_I, student_M_I;
 
  int i;
@@ -150,18 +150,18 @@ int main () {
 
                     total_assignment = total_assignment + assignment;
                   assignment_average = (float)total_assignment / i;
-            assignment_average_total = (float)assignment_average * .10;
+            assignment_average_total = (assignment_average * (float) (percent_assignment * .01));
             }
-            printf("%d",assignment_average_total );
+            printf("%.2f",assignment_average_total );
            for (i=1; i<=number_quiz; i++) {     //input data for quiz
                  printf("      Quiz %d: ",i);
                  scanf("%d", &quiz);
 
                     total_quiz = total_quiz + quiz;
                   quiz_average = (float)total_quiz / i;
-            quiz_average_total = (float)quiz_average * .10;
+            quiz_average_total = (quiz_average * (float) (percent_quiz * .01));
             }
-printf("%d",quiz_average_total );
+printf("%.2f",quiz_average_total );
 
             for (i=1; i<=number_exam; i++) {     //input data for exam
                  printf("      Exam %d: ",i);
@@ -169,30 +169,30 @@ printf("%d",quiz_average_total );
 
                     total_exam = total_exam + exam;
                   exam_average = (float)total_exam / i;
-            exam_average_total = (float)exam_average * .30;
+            exam_average_total = (exam_average * (float) (percent_exam * .01));
             }
-printf("%d",exam_average_total );
+printf("%.2f",exam_average_total );
             for (i=1; i<=number_activities; i++) {     //input data for activities
                  printf("Activities %d: ",i);
                  scanf("%d", &activities);
 
                     total_activities = total_activities + activities;
                   activities_average = (float)total_activities / i;
-            activities_average_total = (float)activities_average * .20;
+            activities_average_total = (activities_average * (float) (percent_activities* .01));
             }
-printf("%d",activities_average_total );
+printf("%.2f",activities_average_total );
               for (i=1; i<=number_project; i++) {    //input data for project
                  printf("    Project %d: ",i);
                  scanf("%d", &project);
 
                     total_project = total_project + project;
                   project_average = (float)total_project / i;
-            project_average_total = (float)project_average * .30;
+            project_average_total = (project_average * (float) (percent_project * .01));
           }
-printf("%d",project_average_total );
+printf("%.2f",project_average_total );
 
     // average total grade
-    total_grade =(float) assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
+    total_grade = assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
 
     // check and convert to uppercase
     for (int i = 0; s1.Fname[i]!='\0' || s1.Mname[i]!='\0' || s1.Lname[i]!='\0' || s1.Subject[i]!='\0'; i++) {
@@ -253,10 +253,10 @@ void Number_Times (void) {
     printf("     Total: %d\n\n",total_number);
 }
 
-void Grading_System(void) {
-     
+int Grading_System(void) {
+
      printf("\n  Assignment: ");
-     scanf("%d",&percent_assignment);    
+     scanf("%d",&percent_assignment);
      printf("        Quiz: ");
      scanf("%d", &percent_quiz);
      printf("        Exam: ");
@@ -264,9 +264,9 @@ void Grading_System(void) {
      printf("  Activities: ");
      scanf("%d", &percent_activities);
      printf("     Project: ");
-     scanf("%d", &percent_project);  
-     
+     scanf("%d", &percent_project);
+
      total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
-    
+
      printf("       Total: %d%%\n",total_percent);
-}  
+}
