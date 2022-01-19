@@ -7,12 +7,14 @@ struct Student {
     char Mname[20];
     char Lname[20];
     char Subject[20];
+    char U_Fname[20];
+    char U_Lname[20];
 };
 
  struct Student s1;
 
  int Grading_System(void);
- void Number_Times(void);
+void Number_Times(void);
 
  char option, M_I;
 
@@ -51,18 +53,19 @@ int main () {
             goto data_info;
           }
 
+
     // check and convert to uppercase
     for (int i = 0; s1.Fname[i]!='\0'|| s1.Mname[i]!='\0' || s1.Lname[i]!='\0'; i++) {
           if(s1.Fname[0]  >= 'a' && s1.Fname[0]  <= 'z' || s1.Mname[0]  >= 'a' && s1.Mname[0] <= 'z' || s1.Lname[0]  >= 'a' && s1.Lname[0]  <= 'z') {
              s1.Fname[0] = s1.Fname[0] -  32; //convert to uppercase
-             s1.Mname[0] = s1.Mname[0] -  32; //convert to uppercase
+                     M_I = s1.Mname[0] = s1.Mname[0] -  32; //convert to uppercase
              s1.Lname[0] = s1.Lname[0] -  32; //convert to uppercase
           }
 
     }
 
   select_option:
-    printf("\nName: %s, %s %c.\n", s1.Lname, s1.Fname, s1.Mname[0]);
+    printf("\nName: %s, %s %c.\n", s1.Lname, s1.Fname, M_I);
     printf("\nA. Math\n");
     printf("B. English\n");
     printf("C. Science\n");
@@ -192,19 +195,23 @@ int main () {
           }
            printf("   Project Average: %.2f\n",project_average_total );
 
-     // average total grade
+             // average total grade
            total_grade = assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
 
            printf("             Total: %d\n",total_number);
            printf("   General Average: %.2f\n",total_grade);
 
+                //copy the previous value
+                strcpy(s1.U_Fname,s1.Fname);
+                strcpy(s1.U_Lname,s1.Lname);
+
     // check and convert to uppercase
     for (int i = 0; s1.Fname[i]!='\0' || s1.Mname[i]!='\0' || s1.Lname[i]!='\0' || s1.Subject[i]!='\0'; i++) {
           if(s1.Fname[i]  >= 'a' && s1.Fname[i]  <= 'z') {
-             s1.Fname[i] = s1.Fname[i] -  32; //convert to uppercase
+             s1.U_Fname[i] = s1.U_Fname[i] -  32; //convert to uppercase
           }
           if(s1.Lname[i]  >= 'a' && s1.Lname[i]  <= 'z') {
-             s1.Lname[i] = s1.Lname[i] -  32; //convert to uppercase
+             s1.U_Lname[i] = s1.U_Lname[i]  -  32; //convert to uppercase
           }
           /*
            if(s1.Subject[i]  >= 'a' && s1.Subject[i]  <= 'z') {
@@ -216,7 +223,7 @@ int main () {
 
      // Report
       printf("\n\nREPORT");
-      printf("\n\nSTUDENT: %s, %s %c.", s1.Lname, s1.Fname, M_I);
+      printf("\n\nSTUDENT: %s, %s %c.",s1.U_Lname, s1.U_Fname, s1.Mname[0]);
       printf("\nSUBJECT: %s",s1.Subject);
       printf("\n  GRADE: %.2f",total_grade);
 
@@ -274,4 +281,3 @@ int Grading_System(void) {
 
      printf("       Total: %d%%\n",total_percent);
 }
-
