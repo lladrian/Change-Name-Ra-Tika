@@ -14,7 +14,7 @@ struct Student {
  int Grading_System(void);
 void Number_Times(void);
 
- char option, M_I, student_M_I;
+ char option, M_I;
 
  int i;
 
