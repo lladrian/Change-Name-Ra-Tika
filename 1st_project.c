@@ -145,51 +145,51 @@ int main () {
 
 
             for (i=1; i<=number_assignment; i++) {     //input data for assignment
-                     printf("\nAssignment %d: ",i);
-                     scanf("%d", &assignment);
+                     printf("      Assignment %d: ",i);
+                        scanf("%d", &assignment);
 
                     total_assignment = total_assignment + assignment;
                   assignment_average = (float)total_assignment / i;
             assignment_average_total = (assignment_average * (float) (percent_assignment * .01));
             }
-            printf("%.2f\n",assignment_average_total );
+            printf("Assignment Average: %.2f\n",assignment_average_total );
            for (i=1; i<=number_quiz; i++) {     //input data for quiz
-                 printf("      Quiz %d: ",i);
+                 printf("            Quiz %d: ",i);
                  scanf("%d", &quiz);
 
                     total_quiz = total_quiz + quiz;
                   quiz_average = (float)total_quiz / i;
             quiz_average_total = (quiz_average * (float) (percent_quiz * .01));
             }
-            printf("%.2f\n",quiz_average_total );
+            printf("      Quiz Average: %.2f\n",quiz_average_total );
 
             for (i=1; i<=number_exam; i++) {     //input data for exam
-                 printf("      Exam %d: ",i);
+                 printf("            Exam %d: ",i);
                  scanf("%d", &exam);
 
                     total_exam = total_exam + exam;
                   exam_average = (float)total_exam / i;
             exam_average_total = (exam_average * (float) (percent_exam * .01));
             }
-            printf("%.2f\n",exam_average_total );
+            printf("      Exam Average: %.2f\n",exam_average_total );
             for (i=1; i<=number_activities; i++) {     //input data for activities
-                 printf("Activities %d: ",i);
+                 printf("      Activities %d: ",i);
                  scanf("%d", &activities);
 
                     total_activities = total_activities + activities;
                   activities_average = (float)total_activities / i;
-            activities_average_total = (activities_average * (float) (percent_activities* .01));
+            activities_average_total = (activities_average * (float) (percent_activities * .01));
             }
-            printf("%.2f\n",activities_average_total );
+            printf("Activities Average: %.2f\n",activities_average_total );
               for (i=1; i<=number_project; i++) {    //input data for project
-                 printf("   Project %d: ",i);
+                 printf("         Project %d: ",i);
                  scanf("%d", &project);
 
                     total_project = total_project + project;
                   project_average = (float)total_project / i;
             project_average_total = (project_average * (float) (percent_project * .01));
           }
-           printf("%.2f\n",project_average_total );
+           printf("   Project Average: %.2f\n",project_average_total );
 
     // average total grade
     total_grade = assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
