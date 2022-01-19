@@ -181,7 +181,7 @@ int main () {
             }
 
               for (i=1; i<=number_project; i++) {    //input data for project
-                 printf("    Project : ",i);
+                 printf("    Project %d: ",i);
                  scanf("%d", &project);
 
                     total_project = total_project + project;
@@ -213,7 +213,7 @@ int main () {
       printf("\n\nSTUDENT: %s, %s %c.", s1.Lname, s1.Lname, M_I);
       printf("\nSUBJECT: %s",s1.Subject);
       printf("\n  GRADE: %.2f",total_grade);
-/*
+
       FILE *fptr;
 
          fptr = fopen("database.txt", "w");
@@ -231,7 +231,7 @@ int main () {
 
         // Closing the file using fclose()
         fclose(fptr) ;
-      }*/
+      }
 
 return 0;
 }
