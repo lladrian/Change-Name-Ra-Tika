@@ -38,7 +38,7 @@ int main () {
 
   data_info :
     printf("Data Info\n\n");
-    printf("Given Name: ");
+    printf(" Given Name: ");
     scanf("%s", &s1.Fname);
     printf("Middle Name: ");
     scanf("%s", &s1.Mname);
@@ -182,7 +182,7 @@ int main () {
             }
             printf("%.2f\n",activities_average_total );
               for (i=1; i<=number_project; i++) {    //input data for project
-                 printf("    Project %d: ",i);
+                 printf("   Project %d: ",i);
                  scanf("%d", &project);
 
                     total_project = total_project + project;
