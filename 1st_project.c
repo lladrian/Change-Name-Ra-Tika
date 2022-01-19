@@ -152,15 +152,16 @@ int main () {
                   assignment_average = (float)total_assignment / i;
             assignment_average_total = (float)assignment_average * .10;
             }
-
+            printf("%d",assignment_average_total );
            for (i=1; i<=number_quiz; i++) {     //input data for quiz
                  printf("      Quiz %d: ",i);
                  scanf("%d", &quiz);
 
-                    total_quiz = total_assignment + assignment;
-                  quiz_average = (float)total_assignment / i;
+                    total_quiz = total_quiz + quiz;
+                  quiz_average = (float)total_quiz / i;
             quiz_average_total = (float)quiz_average * .10;
             }
+printf("%d",quiz_average_total );
 
             for (i=1; i<=number_exam; i++) {     //input data for exam
                  printf("      Exam %d: ",i);
@@ -170,7 +171,7 @@ int main () {
                   exam_average = (float)total_exam / i;
             exam_average_total = (float)exam_average * .30;
             }
-
+printf("%d",exam_average_total );
             for (i=1; i<=number_activities; i++) {     //input data for activities
                  printf("Activities %d: ",i);
                  scanf("%d", &activities);
@@ -179,7 +180,7 @@ int main () {
                   activities_average = (float)total_activities / i;
             activities_average_total = (float)activities_average * .20;
             }
-
+printf("%d",activities_average_total );
               for (i=1; i<=number_project; i++) {    //input data for project
                  printf("    Project %d: ",i);
                  scanf("%d", &project);
@@ -188,9 +189,10 @@ int main () {
                   project_average = (float)total_project / i;
             project_average_total = (float)project_average * .30;
           }
+printf("%d",project_average_total );
 
     // average total grade
-    total_grade = assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
+    total_grade =(float) assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
 
     // check and convert to uppercase
     for (int i = 0; s1.Fname[i]!='\0' || s1.Mname[i]!='\0' || s1.Lname[i]!='\0' || s1.Subject[i]!='\0'; i++) {
@@ -217,7 +219,6 @@ int main () {
       FILE *fptr;
 
          fptr = fopen("database.txt", "w");
-
       if (fptr == NULL) {
 
          printf("\n\nFile does not exists. \n");
@@ -228,7 +229,6 @@ int main () {
         // Write the dataToBeWritten into the file
          fprintf(fptr, "%s   %s   %s   %s, %s %c.   %s   %.2f", s1.Lname, s1.Mname, s1.Fname, s1.Lname, s1.Fname, M_I, s1.Subject, total_grade );
          fputs("\n", fptr) ;
-
         // Closing the file using fclose()
         fclose(fptr) ;
       }
@@ -269,7 +269,4 @@ void Grading_System(void) {
      total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
     
      printf("       Total: %d%%\n",total_percent);
-}
-
-
-
+}  
