@@ -238,7 +238,7 @@ int main () {
         printf("\n\nThe file is now opened.\n") ;
 
         // Write the dataToBeWritten into the file
-         fprintf(fptr, "%s   %s   %s   %s, %s %c.   %s   %.2f", s1.Lname, s1.Mname, s1.Fname, s1.Lname, s1.Fname, M_I, s1.Subject, total_grade );
+         fprintf(fptr, "%s   %s   %s   %s, %s %c.   %s   %.2f", s1.Lname, s1.Mname, s1.Fname, s1.Lname, s1.Fname, s1.Mname[0], s1.Subject, total_grade );
          fputs("\n", fptr) ;
         // Closing the file using fclose()
         fclose(fptr) ;
