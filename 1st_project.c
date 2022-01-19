@@ -12,6 +12,7 @@ struct Student {
  struct Student s1;
 
  int Grading_System(void);
+ void  Grading_System (void);
 
  char option, M_I, student_M_I;
 
