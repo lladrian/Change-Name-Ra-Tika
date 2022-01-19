@@ -192,8 +192,11 @@ int main () {
           }
            printf("   Project Average: %.2f\n",project_average_total );
 
-    // average total grade
-    total_grade = assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
+     // average total grade
+           total_grade = assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
+
+           printf("             Total: %d\n",total_number)
+           printf("   General Average: %.2f\n",total_grade);
 
     // check and convert to uppercase
     for (int i = 0; s1.Fname[i]!='\0' || s1.Mname[i]!='\0' || s1.Lname[i]!='\0' || s1.Subject[i]!='\0'; i++) {
