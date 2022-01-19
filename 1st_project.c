@@ -164,7 +164,7 @@ int main () {
             }
 
               for (i=1; i<=number_project; i++) {    //input data for project
-                 printf(" Project %d: ",i);
+                 printf("   Project %d: ",i);
                  scanf("%d", &project);
 
                     total_project = total_project + project;
