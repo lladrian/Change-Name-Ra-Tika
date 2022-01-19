@@ -78,7 +78,7 @@ int main () {
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("Please try again!(Must total of 100%)\n");
+                printf("\nPlease try again!(Must total of 100%%)\n");
                 goto select_option;
             }
                printf("\nPlease enter the number of each assesment.\n");
@@ -91,7 +91,7 @@ int main () {
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("Please try again!(Must total of 100%)\n");
+                printf("\nPlease try again!(Must total of 100%%)\n");
                 goto select_option;
             }
                printf("\nPlease enter the number of each assesment.\n");
@@ -104,7 +104,7 @@ int main () {
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("Please try again!(Must total of 100%)\n");
+                printf("\nPlease try again!(Must total of 100%%)\n");
                 goto select_option;
             }
                printf("\nPlease enter the number of each assesment.\n");
@@ -117,7 +117,7 @@ int main () {
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("Please try again!(Must total of 100%)\n");
+                printf("\nPlease try again!(Must total of 100%%)\n");
                 goto select_option;
             }
                printf("\nPlease enter the number of each assesment.\n");
@@ -130,7 +130,7 @@ int main () {
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("Please try again!(Must total of 100%)\n");
+                printf("\nPlease try again!(Must total of 100%%)\n");
                 goto select_option;
             }
                printf("\nPlease enter the number of each assesment.\n");
