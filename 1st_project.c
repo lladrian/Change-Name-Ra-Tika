@@ -11,13 +11,8 @@ struct Student {
 
  struct Student s1;
 
- void Math_Grading(void);
- void English_Grading(void);
- void Science_Grading(void);
- void PE_Grading(void);
- void Computer_Grading (void);
- void Number_Times (void);
-
+ void Grading_System(void);
+ 
  char option, M_I, student_M_I;
 
  int i;
@@ -80,7 +75,12 @@ int main () {
     //Option where to input
     if (option=='a' || option=='A' ) {
                printf("\nPlease assign a percentage.\n");
-               Math_Grading ();
+               Grading_System ();
+            if ( total_percent != 100 ) {
+                system("cls");
+                printf("Please try again!(Must total of 100%)\n");
+                goto select_option;
+            }
                printf("\nPlease enter the number of each assesment.\n");
                Number_Times ();
                printf("Please enter the scores:\n");
@@ -88,7 +88,12 @@ int main () {
 
     } else  if (option=='b' || option=='B' ) {
                printf("\nPlease assign a percentage.\n");
-               English_Grading ();
+               Grading_System ();
+            if ( total_percent != 100 ) {
+                system("cls");
+                printf("Please try again!(Must total of 100%)\n");
+                goto select_option;
+            }
                printf("\nPlease enter the number of each assesment.\n");
                Number_Times ();
                printf("Please enter the scores:\n");
@@ -96,7 +101,12 @@ int main () {
 
     } else  if (option=='c' || option=='C' ) {
                printf("\nPlease assign a percentage.\n");
-               Science_Grading();
+               Grading_System ();
+            if ( total_percent != 100 ) {
+                system("cls");
+                printf("Please try again!(Must total of 100%)\n");
+                goto select_option;
+            }
                printf("\nPlease enter the number of each assesment.\n");
                Number_Times ();
                printf("Please enter the scores:\n");
@@ -104,7 +114,12 @@ int main () {
 
     } else  if (option=='d' || option=='D' ) {
                printf("\nPlease assign a percentage.\n");
-               PE_Grading ();
+               Grading_System ();
+            if ( total_percent != 100 ) {
+                system("cls");
+                printf("Please try again!(Must total of 100%)\n");
+                goto select_option;
+            }
                printf("\nPlease enter the number of each assesment.\n");
                Number_Times ();
                printf("Please enter the scores:\n");
@@ -112,16 +127,18 @@ int main () {
 
     } else  if (option=='e' || option=='E' ) {
                printf("\nPlease assign a percentage.\n");
-               Computer_Grading ();
+               Grading_System ();
+            if ( total_percent != 100 ) {
+                system("cls");
+                printf("Please try again!(Must total of 100%)\n");
+                goto select_option;
+            }
                printf("\nPlease enter the number of each assesment.\n");
                Number_Times ();
                printf("Please enter the scores:\n");
                 strcpy(s1.Subject,"Computer");
 
-    } else if ( total_percent != 100 ) {
-            system("cls");
-            goto select_option;
-    } else {
+    }  else {
             system("cls");
             goto select_option;
     }
@@ -196,7 +213,7 @@ int main () {
       printf("\n\nSTUDENT: %s, %s %c.", s1.Lname, s1.Lname, M_I);
       printf("\nSUBJECT: %s",s1.Subject);
       printf("\n  GRADE: %.2f",total_grade);
-
+/*
       FILE *fptr;
 
          fptr = fopen("database.txt", "w");
@@ -214,7 +231,7 @@ int main () {
 
         // Closing the file using fclose()
         fclose(fptr) ;
-      }
+      }*/
 
 return 0;
 }
@@ -236,95 +253,23 @@ void Number_Times (void) {
     printf("     Total: %d\n\n",total_number);
 }
 
-void Math_Grading (void) {
-
- percent_assignment = 100 * .10;
-          percent_quiz = 100 * .10;
-         percent_exam =  100 * .30;
-    percent_activities = 100 * .20;
-      percent_project = 100 * .30;
-         total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
-
-
-    printf("\n  Assignment: %d%%\n",percent_assignment);
-    printf("        Quiz: %d%%\n",percent_quiz);
-    printf("        Exam: %d%%\n", percent_exam);
-    printf("  Activities: %d%%\n",percent_activities);
-    printf("     Project: %d%%\n", percent_project);
-    printf("       Total: %d%%\n",total_percent);
+void Grading_System(void) {
+     
+     printf("\n  Assignment: ");
+     scanf("%d",&percent_assignment);    
+     printf("        Quiz: ");
+     scanf("%d", &percent_quiz);
+     printf("        Exam: ");
+     scanf("%d", &percent_exam);
+     printf("  Activities: ");
+     scanf("%d", &percent_activities);
+     printf("     Project: ");
+     scanf("%d", &percent_project);  
+     
+     total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
+    
+     printf("       Total: %d%%\n",total_percent);
 }
 
 
-void English_Grading (void) {
 
- percent_assignment = 100 * .10;
-          percent_quiz = 100 * .15;
-         percent_exam =  100 * .25;
-    percent_activities = 100 * .25;
-      percent_project = 100 * .25;
-         total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
-
-
-    printf("\n  Assignment: %d%%\n",percent_assignment);
-    printf("        Quiz: %d%%\n",percent_quiz);
-    printf("        Exam: %d%%\n", percent_exam);
-    printf("  Activities: %d%%\n",percent_activities);
-    printf("     Project: %d%%\n", percent_project);
-    printf("       Total: %d%%\n",total_percent);
-
-}
-
-void Science_Grading (void) {
-
- percent_assignment = 100 * .10;
-          percent_quiz = 100 * .10;
-         percent_exam =  100 * .30;
-    percent_activities = 100 * .25;
-      percent_project = 100 * .25;
-         total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
-
-    printf("\n  Assignment: %d%%\n",percent_assignment);
-    printf("        Quiz: %d%%\n",percent_quiz);
-    printf("        Exam: %d%%\n", percent_exam);
-    printf("  Activities: %d%%\n",percent_activities);
-    printf("     Project: %d%%\n", percent_project);
-    printf("       Total: %d%%\n",total_percent);
-
-}
-
-void PE_Grading (void) {
-
- percent_assignment = 100 * .10;
-          percent_quiz = 100 * .10;
-         percent_exam =  100 * .20;
-    percent_activities = 100 * .20;
-      percent_project = 100 * .40;
-         total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
-
-    printf("\n  Assignment: %d%%\n",percent_assignment);
-    printf("        Quiz: %d%%\n",percent_quiz);
-    printf("        Exam: %d%%\n", percent_exam);
-    printf("  Activities: %d%%\n",percent_activities);
-    printf("     Project: %d%%\n", percent_project);
-    printf("       Total: %d%%\n",total_percent);
-
-
-}
-
-void Computer_Grading (void) {
-
- percent_assignment = 100 * .10;
-          percent_quiz = 100 * .10;
-         percent_exam =  100 * .20;
-    percent_activities = 100 * .30;
-      percent_project = 100 * .30;
-         total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
-
-    printf("\n  Assignment: %d%%\n",percent_assignment);
-    printf("        Quiz: %d%%\n",percent_quiz);
-    printf("        Exam: %d%%\n", percent_exam);
-    printf("  Activities: %d%%\n",percent_activities);
-    printf("     Project: %d%%\n", percent_project);
-    printf("       Total: %d%%\n",total_percent);
-
-}
