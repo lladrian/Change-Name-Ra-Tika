@@ -14,7 +14,7 @@ struct Student {
  int Grading_System(void);
  void Number_Times(void);
 
- char option, M_I, student_M_I;
+ char option, M_I;
 
  int i;
 
@@ -55,14 +55,14 @@ int main () {
     for (int i = 0; s1.Fname[i]!='\0'|| s1.Mname[i]!='\0' || s1.Lname[i]!='\0'; i++) {
           if(s1.Fname[0]  >= 'a' && s1.Fname[0]  <= 'z' || s1.Mname[0]  >= 'a' && s1.Mname[0] <= 'z' || s1.Lname[0]  >= 'a' && s1.Lname[0]  <= 'z') {
              s1.Fname[0] = s1.Fname[0] -  32; //convert to uppercase
-           M_I = s1.Mname[0] = s1.Mname[0] -  32; //convert to uppercase
+             s1.Mname[0] = s1.Mname[0] -  32; //convert to uppercase
              s1.Lname[0] = s1.Lname[0] -  32; //convert to uppercase
           }
 
     }
 
   select_option:
-    printf("\nName: %s, %s %c.\n", s1.Lname, s1.Fname, M_I);
+    printf("\nName: %s, %s %c.\n", s1.Lname, s1.Fname, s1.Mname[0]);
     printf("\nA. Math\n");
     printf("B. English\n");
     printf("C. Science\n");
