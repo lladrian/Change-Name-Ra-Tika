@@ -1,12 +1,14 @@
 #include <iostream>
 #include <cstring>
+#include <string>
+#include <fstream>
 
+using namespace std;
 
 struct Student {
     char Fname[20];
     char Mname[20];
     char Lname[20];
-    char Subject[20];
     char U_Fname[20];
     char U_Lname[20];
 };
@@ -17,6 +19,8 @@ struct Student {
 void Number_Times(void);
 
  char option, M_I;
+
+ string Subject;
 
  int i;
 
@@ -38,15 +42,15 @@ void Number_Times(void);
 
 int main () {
 
-
   data_info :
-    printf("Data Info\n\n");
-    printf(" Given Name: ");
-    scanf("%s", &s1.Fname);
-    printf("Middle Name: ");
-    scanf("%s", &s1.Mname);
-    printf("Family Name: ");
-    scanf("%s", &s1.Lname);
+       cout << "Data Info\n\n" << endl;
+       cout << " Given Name: ";
+        cin >> s1.Fname;
+       cout << "Middle Name: ";
+        cin >> s1.Mname;
+       cout << "Family Name: ";
+        cin >> s1.Lname;
+
 
      if(s1.Fname[0]  >= 'A' && s1.Fname[0]  <= 'Z' || s1.Mname[0]  >= 'A' && s1.Mname[0] <= 'Z' || s1.Lname[0]  >= 'A' && s1.Lname[0]  <= 'Z') {
             system("cls");
@@ -64,84 +68,89 @@ int main () {
 
     }
 
-  select_option:
-    printf("\nName: %s, %s %c.\n", s1.Lname, s1.Fname, M_I);
-    printf("\nA. Math\n");
-    printf("B. English\n");
-    printf("C. Science\n");
-    printf("D. PE\n");
-    printf("E. Computer\n");
 
-    printf("\nSelect Subject: ");
-    scanf("%s", &option);
+  select_option:
+
+        cout << "\nName: " << s1.Lname  << ", " << s1.Fname <<" "<<  M_I << "." << endl;
+        cout << "\nA. Math" << endl;
+        cout << "B. English" << endl;
+        cout << "C. Science" << endl;
+        cout << "D. PE" << endl;
+        cout << "E. Computer" << endl;
+        cout << "\nSelect Subject: ";
+         cin >> option;
 
 
     //Option where to input
     if (option=='a' || option=='A' ) {
-               printf("\nPlease assign a percentage.\n");
+              cout << "\nPlease assign a percentage.\n";
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("\nPlease try again!(Must total of 100%%)\n");
+              cout << "\nPlease try again!(Must total of 100%%)\n";
                 goto select_option;
             }
-               printf("\nPlease enter the number of each assesment.\n");
+              cout << "\nPlease enter the number of each assesment.\n";
                Number_Times ();
-               printf("Please enter the scores:\n");
-                strcpy(s1.Subject,"Math");
+              cout << "Please enter the scores:\n";
+
+                Subject = "Math";
 
     } else  if (option=='b' || option=='B' ) {
-               printf("\nPlease assign a percentage.\n");
+             cout << "\nPlease assign a percentage.\n";
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("\nPlease try again!(Must total of 100%%)\n");
+              cout << "\nPlease try again!(Must total of 100%%)\n";
                 goto select_option;
             }
-               printf("\nPlease enter the number of each assesment.\n");
+              cout << "\nPlease enter the number of each assesment.\n";
                Number_Times ();
-               printf("Please enter the scores:\n");
-                strcpy(s1.Subject,"English");
+              cout << "Please enter the scores:\n";
+
+               Subject = "English";
 
     } else  if (option=='c' || option=='C' ) {
-               printf("\nPlease assign a percentage.\n");
+               cout << "\nPlease assign a percentage.\n";
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("\nPlease try again!(Must total of 100%%)\n");
+              cout << "\nPlease try again!(Must total of 100%%)\n";
                 goto select_option;
             }
-               printf("\nPlease enter the number of each assesment.\n");
+              cout << "\nPlease enter the number of each assesment.\n";
                Number_Times ();
-               printf("Please enter the scores:\n");
-                strcpy(s1.Subject,"Science");
+              cout << "Please enter the scores:\n";
+
+                Subject = "Science";
 
     } else  if (option=='d' || option=='D' ) {
-               printf("\nPlease assign a percentage.\n");
+              cout << "\nPlease assign a percentage.\n";
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("\nPlease try again!(Must total of 100%%)\n");
+              cout << "\nPlease try again!(Must total of 100%%)\n";
                 goto select_option;
             }
-               printf("\nPlease enter the number of each assesment.\n");
+              cout << "\nPlease enter the number of each assesment.\n";
                Number_Times ();
-               printf("Please enter the scores:\n");
-                strcpy(s1.Subject,"PE");
+              cout << "Please enter the scores:\n";
+
+                Subject = "PE";
 
     } else  if (option=='e' || option=='E' ) {
-               printf("\nPlease assign a percentage.\n");
+               cout << "\nPlease assign a percentage.\n";
                Grading_System ();
             if ( total_percent != 100 ) {
                 system("cls");
-                printf("\nPlease try again!(Must total of 100%%)\n");
+              cout << "\nPlease try again!(Must total of 100%%)\n";
                 goto select_option;
             }
-               printf("\nPlease enter the number of each assesment.\n");
+              cout << "\nPlease enter the number of each assesment.\n";
                Number_Times ();
-               printf("Please enter the scores:\n");
-                strcpy(s1.Subject,"Computer");
+              cout << "Please enter the scores:\n";
 
+               Subject = "Computer";
     }  else {
             system("cls");
             goto select_option;
@@ -149,64 +158,73 @@ int main () {
 
 
             for (i=1; i<=number_assignment; i++) {     //input data for assignment
-                     printf("      Assignment %d: ",i);
-                        scanf("%d", &assignment);
+                     cout << "      Assignment " << i << ": " ;
+                     cin >> assignment;
+
 
                     total_assignment = total_assignment + assignment;
                   assignment_average = (float)total_assignment / i;
             assignment_average_total = (assignment_average * (float) (percent_assignment * .01));
             }
-            printf("Assignment Average: %.2f\n",assignment_average_total );
+
+             cout << "Assignment Average: " << assignment_average_total << endl;
+
            for (i=1; i<=number_quiz; i++) {     //input data for quiz
-                 printf("            Quiz %d: ",i);
-                 scanf("%d", &quiz);
+                   cout << "            Quiz " << i << ": " ;
+                   cin >> quiz;
 
                     total_quiz = total_quiz + quiz;
                   quiz_average = (float)total_quiz / i;
             quiz_average_total = (quiz_average * (float) (percent_quiz * .01));
             }
-            printf("      Quiz Average: %.2f\n",quiz_average_total );
+
+                   cout << "      Quiz Average: " << quiz_average_total << endl;
 
             for (i=1; i<=number_exam; i++) {     //input data for exam
-                 printf("            Exam %d: ",i);
-                 scanf("%d", &exam);
+                   cout << "            Exam " << i << ": " ;
+                   cin >> exam;
 
                     total_exam = total_exam + exam;
                   exam_average = (float)total_exam / i;
             exam_average_total = (exam_average * (float) (percent_exam * .01));
             }
-            printf("      Exam Average: %.2f\n",exam_average_total );
+
+                   cout << "      Exam Average: " << exam_average_total << endl;
+
             for (i=1; i<=number_activities; i++) {     //input data for activities
-                 printf("      Activities %d: ",i);
-                 scanf("%d", &activities);
+                   cout << "      Activities " << i << ": " ;
+                   cin >> activities;
+
 
                     total_activities = total_activities + activities;
                   activities_average = (float)total_activities / i;
             activities_average_total = (activities_average * (float) (percent_activities * .01));
             }
-            printf("Activities Average: %.2f\n",activities_average_total );
+
+                    cout << "Activities Average: " << activities_average_total << endl;
+
               for (i=1; i<=number_project; i++) {    //input data for project
-                 printf("         Project %d: ",i);
-                 scanf("%d", &project);
+                    cout << "         Project " << i << ": " ;
+                    cin >> project;
 
                     total_project = total_project + project;
                   project_average = (float)total_project / i;
             project_average_total = (project_average * (float) (percent_project * .01));
           }
-           printf("   Project Average: %.2f\n",project_average_total );
+                    cout << "   Project Average: " << project_average_total << endl;
 
              // average total grade
            total_grade = assignment_average_total + quiz_average_total + exam_average_total + activities_average_total + project_average_total;
 
-           printf("             Total: %d\n",total_number);
-           printf("   General Average: %.2f\n",total_grade);
+                    cout << "             Total: " << total_number << endl;
+                    cout << "   General Average: " << total_grade << endl;
 
                 //copy the previous value
                 strcpy(s1.U_Fname,s1.Fname);
                 strcpy(s1.U_Lname,s1.Lname);
 
     // check and convert to uppercase
-    for (int i = 0; s1.Fname[i]!='\0' || s1.Mname[i]!='\0' || s1.Lname[i]!='\0' || s1.Subject[i]!='\0'; i++) {
+    for (int i = 0; s1.Fname[i]!='\0' || s1.Mname[i]!='\0' || s1.Lname[i]!='\0'; i++) {
           if(s1.Fname[i]  >= 'a' && s1.Fname[i]  <= 'z') {
              s1.U_Fname[i] = s1.U_Fname[i] -  32; //convert to uppercase
           }
@@ -222,62 +240,56 @@ int main () {
 
 
      // Report
-      printf("\n\nREPORT");
-      printf("\n\nSTUDENT: %s, %s %c.",s1.U_Lname, s1.U_Fname, s1.Mname[0]);
-      printf("\nSUBJECT: %s",s1.Subject);
-      printf("\n  GRADE: %.2f",total_grade);
+         cout << "\n\nREPORT";
+         cout << "\n\nSTUDENT: " << s1.U_Lname  << ", " << s1.U_Fname <<" "<< s1.Mname[0] << "." << endl;
+         cout << "\nSUBJECT: " << Subject;
+         cout << "\n  GRADE: " << total_grade;
 
-      FILE *fptr;
 
-         fptr = fopen("database.txt", "w");
-      if (fptr == NULL) {
-
-         printf("\n\nFile does not exists. \n");
-
-      } else {
-        printf("\n\nThe file is now opened.\n") ;
+        ofstream MyFile("database.txt");
 
         // Write the dataToBeWritten into the file
-         fprintf(fptr, "%s   %s   %s   %s, %s %c.   %s   %.2f", s1.Lname, s1.Mname, s1.Fname, s1.Lname, s1.Fname, s1.Mname[0], s1.Subject, total_grade );
-         fputs("\n", fptr) ;
+        cout << "\n\nThe file is now opened.\n";
+
+        MyFile << " " <<  s1.Lname  << "  " << s1.Mname <<"  "<<  s1.Fname << "   " <<  s1.Lname << ", " <<  s1.Fname << "  " << s1.Mname[0] << ".  " <<  Subject << "  " <<  total_grade;
         // Closing the file using fclose()
-        fclose(fptr) ;
-      }
+        MyFile.close();
+
 
 return 0;
 }
 void Number_Times (void) {
-
-    printf("\nAssignment: ");
-    scanf("%d", &number_assignment);
-    printf("      Quiz: ");
-    scanf("%d", &number_quiz);
-    printf("      Exam: ");
-    scanf("%d", &number_exam);
-    printf("Activities: ");
-    scanf("%d", &number_activities);
-    printf("   Project: ");
-    scanf("%d", &number_project);
+      cout << "\nAssignment: ";
+      cin >> number_assignment;
+      cout << "      Quiz: ";
+      cin >> number_quiz;
+      cout << "      Exam: ";
+      cin >> number_exam;
+      cout << "Activities: ";
+      cin >> number_activities;
+      cout << "   Project: ";
+      cin >> number_project;
 
     total_number = number_assignment + number_quiz + number_exam + number_activities + number_project;
 
-    printf("     Total: %d\n\n",total_number);
+      cout << "     Total: " << total_number << "\n\n";
+
 }
 
 int Grading_System(void) {
-
-     printf("\n  Assignment: ");
-     scanf("%d",&percent_assignment);
-     printf("        Quiz: ");
-     scanf("%d", &percent_quiz);
-     printf("        Exam: ");
-     scanf("%d", &percent_exam);
-     printf("  Activities: ");
-     scanf("%d", &percent_activities);
-     printf("     Project: ");
-     scanf("%d", &percent_project);
+      cout << "\nAssignment: ";
+      cin >> percent_assignment;
+      cout << "      Quiz: ";
+      cin >> percent_quiz;
+      cout << "      Exam: ";
+      cin >> percent_exam;
+      cout << "Activities: ";
+      cin >> percent_activities;
+      cout << "   Project: ";
+      cin >> percent_project;
 
      total_percent = percent_assignment + percent_quiz + percent_exam +  percent_activities + percent_project;
 
-     printf("       Total: %d%%\n",total_percent);
+     cout << "     Total: " << total_percent << "%%\n";
+
 }
