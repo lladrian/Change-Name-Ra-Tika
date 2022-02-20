@@ -1,0 +1,18 @@
+1. Start 
+2. #define size 5
+3. Set top = -1 , queue[size]
+4. do 
+5. Display Queue Operations
+6. Select operations from 1-7
+7. Input value of choice
+8. Choice 
+  8.1. Case 1: Enqueue(); break;
+  8.2. Case 2: Dequeue(); break;
+  8.3. Case 3: Peek(); break;
+  8.4. Case 4: isFull(); break;
+  8.5. Case 5: isEmpty(); break;
+  8.6. Case 6: Display(); break;
+  8.7. Safe Exit
+  8.8. Default: Display "Error: Please try again!" 
+9. while (choice>0 && choice <=7)
+10. End

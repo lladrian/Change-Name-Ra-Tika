@@ -1,0 +1,215 @@
+#include <stdio.h>
+#define size 5 
+
+/*I'm using this code function declaration and function call
+  because I'm much more comfortable to give an explanation.
+  Also I have an extra code and it was converted into non functions*/
+    
+    //Global variables
+    int stack[size]; 
+    int top = -1;
+    int data, choice, max, min, push, pop;
+    
+/*Push to place something into a stack; 
+  to add an element to the tail of a stack*/
+/*If the content of an array is full
+  it will display "Your stack is full."*/
+/*Note that we need to increment the value of top by 1 
+  for use to feel the changes*/
+/*Note the we use if and else statement so that 
+  it will only execute the program if the condition is true or false */
+//if the queue is full there will be no incrementation to our variable top
+//function declaration 
+void Push() {
+    if(top<size-1) {
+        //true
+        /*note that the value of our top 
+     updates everytime pop and push operations called.*/
+        top = top + 1;
+        //to add space where the elements to be stored 
+        //also our array size is 5 
+        printf("Stack: ");
+        scanf("%d",&data);
+        //data inputted
+        push=data;
+        stack[top] = data;
+        //data was stored inside the array.
+       
+         printf("You pushed element %d.\n",push);
+    } else {  
+        //false 
+        printf("Your stack is full.\n");
+    }
+}
+
+/*Pop to take something out of a stack;
+  to remove the last available element 
+  from the tail of a stack.*/
+/*If the content of an array is empty
+  it will display "Your stack is empty."*/
+/*Note that we need to decrement the value of top by 1 
+  for use to feel the changes*/
+/*Note the we use if and else statement so that 
+  it will only execute the program if the 
+  condition is true or false */
+//if the stack is empty there will be no decrementation to our variable top 
+//function declaration
+void Pop() {
+/*note that the value of our top 
+     updates everytime pop and push operations called.*/
+    if(top>=0) {
+        //true
+        //we get the value before it was deleted
+        pop=stack[top];
+        //the element was stored in pop
+        //Display the value of pop
+        printf("You popped element %d.\n",pop);  
+        
+        top = top - 1;
+        //to remove the space and elements from the tail of stacks
+                              
+    } else {
+        //false
+        printf("Your stack is empty.\n");
+    }          
+}
+
+//If there's no remaining elements it will display NONE.
+/*Note the we use if and else statement so that 
+  it will only execute the program if the 
+  condition is true or false */
+/*Get the value of the tail of the stack 
+  without removing it*/
+//function declaration
+void Peek() {
+/*note that the value of our top 
+     updates everytime pop and push operations called.*/
+   if(top>=0) {
+        //true
+        //Tail element value
+        //to be deleted        
+        printf("Tail value of your stack is %d.",stack[top]);
+      
+   } else {
+        //false
+        //display NONE if there's no element
+        printf("Your Stack: NONE");
+   }     
+        printf("\n"); //newline      
+}
+
+//If there's no remaining elements it will display NONE.
+/*Note the we use if and else statement so that 
+  it will only execute the program if the 
+  condition is true or false */
+//To see the results of your stack
+//function declaration
+void Display() {
+       /*note that the value of our top 
+     updates everytime pop and push operations called.*/    
+      if (top>=0) { 
+        //true   
+          printf("Your Stack:");
+          for(int i=0;i<=top; i++) {  
+            //to display your updated queue
+            printf(" %d ",stack[i]);
+          }         
+      } else if (top<0) {  
+        //false 
+        printf("Your Stack: NONE");    
+     }
+        printf("\n"); //newline
+
+}
+
+//to determine your stack whether Empty or Not.
+/*Note the we use if and else statement so that 
+  it will only execute the program if the 
+  condition is true or false */
+//function declaration
+void isEmpty() {
+      //the min variable will get the value of our top 
+       min=top;
+      /*note that the value of our top 
+     updates everytime pop and push operations called.*/
+       //if min is less than 0 then it proves that our condition is true
+     if (min<0) {
+      //true
+      //Display True indicates that your queue is empty.
+      printf("True\n");
+    } else {
+      //false
+      //Display False indicates that your queue is filled with an elements.
+      printf("False\n");
+    }
+}
+//to determine your stack whether Full or Not.
+/*Note the we use if and else statement so that 
+  it will only execute the program if the 
+  condition is true or false */
+//function declaration
+void isFull() {
+      //the value of our size is 5
+      //therefore the value of our max is 4 since our size was subtracted by 1 
+       max=size-1;
+      //if top is greater than or equal to 4 then it proves that our condition is true
+      /*note that the value of our top 
+     updates everytime pop and push operations called.*/
+    if (top>=max) {
+      //true
+      //Display True indicates that your queue is Full.
+      printf("True\n");
+    } else {
+      //false
+      //Display False indicates that your queue is not yet full.
+      printf("False\n");
+    }
+}
+
+
+int main (void) {
+
+   do {
+
+    //Let's display our options/operations
+    printf("\nStack Operations\n");
+    printf("1. Push()\n");
+    printf("2. Pop()\n");
+    printf("3. Peek()\n");
+    printf("4. isFull()\n");
+    printf("5. isEmpty()\n");
+    printf("6. Display()\n");
+    printf("7. Quit\n");
+    printf("Select Operation (1-7): ");
+    scanf("%d",&choice);
+ 
+/*This is our stack operations;
+  let the user choose what operation they want*/
+/*We use break statement so that 
+  it won't allow to execute the next operations*/
+/*If the user input 7 the program display "Thank You!" and the program ends.
+//case 7 is our Safe Exit
+/*If it's none of the choices it will display 
+  "Error! Please try again." and the program ends*/
+ /*inside the codeblocks of our switch case statement that is our function call 
+   through calling each function it allows us to run the program of the said operation.*/
+/*We can also convert in into non function but I prefer to be like this for better understanding
+  especially if someone read my works*/  
+    switch(choice) {  
+        case 1:    Push(); break;   
+        case 2:     Pop(); break;
+        case 3:    Peek(); break;
+        case 4:  isFull(); break; 
+        case 5: isEmpty(); break;
+        case 6: Display(); break;
+        case 7:  printf("\nThank You! \n\n");
+                  exit(0); break;
+      default :  printf("\nError: Please try again!\n");
+    }
+    
+   } while(choice>0 && choice<=7);
+  //We have an available options from 1-7 
+ /*We set a condition so that 
+   it will only runs the program 
+   if the inputted value of choice is valid.*/
+}    
