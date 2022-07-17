@@ -1,6 +1,12 @@
 #include <stdio.h>
 #define size 5 
 
+/*
+     Author : Adrian C. Manatad
+       Date : April 10, 2022
+     Reason : SCHOOL ACTIVITY
+*/
+
 /*I'm using this code function declaration and function call
   because I'm much more comfortable to give an explanation.
   Also I have an extra code and it was converted into non functions*/
